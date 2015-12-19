@@ -14,6 +14,7 @@ namespace Prato_fiorito
         static int colonnautente;
         static int rigautente;
         static int[,] campo = new int[righe, colonne];
+        static int[,] campoutente= new int [righe, colonne];
 
         static void Main(string[] args)
         {
@@ -64,8 +65,34 @@ namespace Prato_fiorito
                 }
 
             } while (!verifica2 || colonnautente > 9 || colonnautente < 1);
+        }
+        static void controllo()
+        {
+            
+                if (campo[rigautente, colonnautente] == 1)
+                {
+                    Console.WriteLine("Hai preso una bomba,Hai perso!");
+                }
+                if (campo[rigautente, colonnautente] == 0)
+                {
+                    Console.WriteLine("non hai preso una bomba");
+                }    
+        }
+        static void Comunicazione()
+        {
+            
 
         }
+        static int [,] completamentoCampoUtente()
+        {
+            string o = "o";
+            for (int r = 0; r < 10; r++)
+                for (int c = 0; c < 10; c++)
+                    campoutente[r, c] = int.Parse(o);
+            return campoutente;
+        }
+
+    
     }
 
 
