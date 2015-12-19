@@ -8,22 +8,26 @@ namespace Prato_fiorito
 {
     class Program
     {
+        static int contatore;
         static int n_mine = 9;
         static int colonne = 9;
         static int righe = 9;
         static int colonnautente;
         static int rigautente;
         static int[,] campo = new int[righe, colonne];
-        static int[,] campoutente= new int [righe, colonne];
+        static string[,] campoutente= new string [righe, colonne];
 
         static void Main(string[] args)
         {
+            visioneCampoUtente();
             campo = preparazioneCampo();
             richiesta();
+            
         }
 
         static int[,] preparazioneCampo()
         {
+            Console.WriteLine("");
             Random mine = new Random();
 
             for (int i = 0; i < righe; i++)
@@ -76,6 +80,7 @@ namespace Prato_fiorito
                 if (campo[rigautente, colonnautente] == 0)
                 {
                     Console.WriteLine("non hai preso una bomba");
+                    contatore++;
                 }    
         }
         static void Comunicazione()
@@ -83,15 +88,20 @@ namespace Prato_fiorito
             
 
         }
-        static int [,] completamentoCampoUtente()
+        static void visioneCampoUtente()
         {
-            string o = "o";
-            for (int r = 0; r < 10; r++)
-                for (int c = 0; c < 10; c++)
-                    campoutente[r, c] = int.Parse(o);
-            return campoutente;
-        }
 
+            for (int r = 0; r < 9; r++)
+            {
+                Console.WriteLine("");
+                for (int c = 0; c < 9; c++)
+                {
+                    campoutente[r, c] = "O";
+                    Console.Write(campoutente[r, c]);
+                }
+            } 
+        }
+        
     
     }
 
