@@ -57,13 +57,13 @@ namespace Prato_fiorito
             do
             {
                 Console.WriteLine("dammi la colonna");
-                verifica2 = Int32.TryParse(Console.ReadLine(), out rigautente);
-                if (!verifica2 || rigautente < 1 || rigautente > 9)
+                verifica2 = Int32.TryParse(Console.ReadLine(), out colonnautente);
+                if (!verifica2 || colonnautente < 1 || colonnautente > 9)
                 {
                     Console.WriteLine("inserire un valore corretto");
                 }
-                    
-            } while (!verifica2 || colonnautente > 9|| colonnautente<1);
+
+            } while (!verifica2 || colonnautente > 9 || colonnautente < 1);
 
         }
     }
