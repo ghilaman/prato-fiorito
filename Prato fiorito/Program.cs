@@ -19,8 +19,8 @@ namespace Prato_fiorito
 
         static void Main(string[] args)
         {
-            visioneCampoUtente();
             campo = preparazioneCampo();
+            completamentoVisioneCampoUtente();
             richiesta();
             
         }
@@ -43,7 +43,6 @@ namespace Prato_fiorito
             }
             return campo;
         }
-
         static void richiesta()
         {
             bool verifica;
@@ -75,7 +74,9 @@ namespace Prato_fiorito
             
                 if (campo[rigautente, colonnautente] == 1)
                 {
+                    campoutente[rigautente, colonnautente] = "x";
                     Console.WriteLine("Hai preso una bomba,Hai perso!");
+
                 }
                 if (campo[rigautente, colonnautente] == 0)
                 {
@@ -88,7 +89,7 @@ namespace Prato_fiorito
             
 
         }
-        static void visioneCampoUtente()
+        static void completamentoVisioneCampoUtente()
         {
 
             for (int r = 0; r < 9; r++)
@@ -101,7 +102,17 @@ namespace Prato_fiorito
                 }
             } 
         }
-        
+        static void visioneCampoUtente()
+        {
+            for (int r = 0; r < 9; r++)
+            {
+                Console.Write("");
+                Console.WriteLine("");
+
+                for (int c = 0; c < 9; c++)
+                    Console.WriteLine(campoutente[r, c]);
+            }
+        }
     
     }
 
