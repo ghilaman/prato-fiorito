@@ -24,6 +24,7 @@ namespace Prato_fiorito
             richiesta();
             controllo();
             
+            
         }
 
         static int[,] preparazioneCampo()
@@ -73,20 +74,26 @@ namespace Prato_fiorito
         }
         static void controllo()
         {
-            
-                if (campo[rigautente, colonnautente] == 1)
+
+            if (campo[rigautente, colonnautente] == 1)
+            {
+                campoutente[rigautente, colonnautente] = "X";
+                Console.WriteLine("Hai preso una bomba,Hai perso!");
+                visioneCampoUtente();
+            }
+            else
+                if (campo[rigautente, colonnautente] == 0)
                 {
-                    campoutente[rigautente, colonnautente] = "X";
-                    visioneCampoUtente(); 
-                    Console.WriteLine("Hai preso una bomba,Hai perso!");
-                }
-                else
-                    if (campo[rigautente, colonnautente] == 0)
+                    do
                     {
+                        Console.WriteLine("");
                         Console.WriteLine("non hai preso una bomba");
                         contatore++;
-                    }    
-        }
+                    } while (campoutente[rigautente, colonnautente] == "L");
+                    campoutente[rigautente, colonnautente] = "L";
+                    visioneCampoUtente();
+                }
+        }  
         static void Comunicazione()
         {
             
