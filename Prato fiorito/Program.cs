@@ -22,12 +22,12 @@ namespace Prato_fiorito
             campo = preparazioneCampo();
             completamentoVisioneCampoUtente();
             richiesta();
+            controllo();
             
         }
 
         static int[,] preparazioneCampo()
         {
-            Console.WriteLine("");
             Random mine = new Random();
 
             for (int i = 0; i < righe; i++)
@@ -45,6 +45,8 @@ namespace Prato_fiorito
         }
         static void richiesta()
         {
+            Console.WriteLine("");
+            Console.WriteLine("");
             bool verifica;
             do
             {
@@ -74,15 +76,16 @@ namespace Prato_fiorito
             
                 if (campo[rigautente, colonnautente] == 1)
                 {
-                    campoutente[rigautente, colonnautente] = "x";
+                    campoutente[rigautente, colonnautente] = "X";
+                    visioneCampoUtente(); 
                     Console.WriteLine("Hai preso una bomba,Hai perso!");
-
                 }
-                if (campo[rigautente, colonnautente] == 0)
-                {
-                    Console.WriteLine("non hai preso una bomba");
-                    contatore++;
-                }    
+                else
+                    if (campo[rigautente, colonnautente] == 0)
+                    {
+                        Console.WriteLine("non hai preso una bomba");
+                        contatore++;
+                    }    
         }
         static void Comunicazione()
         {
@@ -106,16 +109,14 @@ namespace Prato_fiorito
         {
             for (int r = 0; r < 9; r++)
             {
-                Console.Write("");
                 Console.WriteLine("");
-
                 for (int c = 0; c < 9; c++)
-                    Console.WriteLine(campoutente[r, c]);
+                    Console.Write(campoutente[r, c]);
             }
         }
-    
+     
     }
-
+    //GUARDA QUESTO MESSAGGIO, DEVI SISTEMARE LA SECONDA PARTE DEL CONTROLLO E CAPIRE L'EERORE NELLA PRIMA (IN PRATICA BISOGNA RISISTEMARE TUTTA LA QUESTIONE DEI NUMERI CHE VANNO DA 0 A 8 E NON DAI 1 A 9)
 
 
 
