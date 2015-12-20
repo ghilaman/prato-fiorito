@@ -21,9 +21,12 @@ namespace Prato_fiorito
         {
             campo = preparazioneCampo();
             completamentoVisioneCampoUtente();
-            richiesta();
-            controllo();
             
+            while (contatore < (colonne*righe)-n_mine)
+            {
+                richiesta();
+                controllo();
+            }
             
         }
 
@@ -78,21 +81,24 @@ namespace Prato_fiorito
             if (campo[rigautente, colonnautente] == 1)
             {
                 campoutente[rigautente, colonnautente] = "X";
-                Console.WriteLine("Hai preso una bomba,Hai perso!");
+                Console.WriteLine("HAI PRESO UNA BOMBA, HAI PERSO!");
                 visioneCampoUtente();
+                System.Environment.Exit(contatore);
             }
             else
-                if (campo[rigautente, colonnautente] == 0)
+                if ((campoutente[rigautente, colonnautente] == "L"))
                 {
-                    do
+                    Console.WriteLine("numeri già inseriti");
+                }
+                else 
+                    if (campo[rigautente, colonnautente] == 0)
                     {
                         Console.WriteLine("");
                         Console.WriteLine("non hai preso una bomba");
+                        campoutente[rigautente, colonnautente] = "L";
+                        visioneCampoUtente();
                         contatore++;
-                    } while (campoutente[rigautente, colonnautente] == "L");
-                    campoutente[rigautente, colonnautente] = "L";
-                    visioneCampoUtente();
-                }
+                    }
         }  
         static void Comunicazione()
         {
@@ -123,7 +129,7 @@ namespace Prato_fiorito
         }
      
     }
-    //GUARDA QUESTO MESSAGGIO, DEVI SISTEMARE LA SECONDA PARTE DEL CONTROLLO E CAPIRE L'EERORE NELLA PRIMA (IN PRATICA BISOGNA RISISTEMARE TUTTA LA QUESTIONE DEI NUMERI CHE VANNO DA 0 A 8 E NON DAI 1 A 9)
+   
 
 
 
