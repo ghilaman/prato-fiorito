@@ -52,24 +52,24 @@ namespace Prato_fiorito
             {
                 Console.WriteLine("dammi la riga");
                 verifica = Int32.TryParse(Console.ReadLine(), out rigautente);
-                if (!verifica || rigautente < 1 || rigautente > 9)
+                if (!verifica || rigautente < 0 || rigautente > 8)
                 {
                     Console.WriteLine("inserire un valore corretto");
                 }
 
-            } while (!verifica || rigautente > 9|| rigautente<1);
+            } while (!verifica || rigautente > 8|| rigautente<0);
 
             bool verifica2;
             do
             {
                 Console.WriteLine("dammi la colonna");
                 verifica2 = Int32.TryParse(Console.ReadLine(), out colonnautente);
-                if (!verifica2 || colonnautente < 1 || colonnautente > 9)
+                if (!verifica2 || colonnautente < 0 || colonnautente > 8)
                 {
                     Console.WriteLine("inserire un valore corretto");
                 }
 
-            } while (!verifica2 || colonnautente > 9 || colonnautente < 1);
+            } while (!verifica2 || colonnautente > 8 || colonnautente < 0);
         }
         static void controllo()
         {
